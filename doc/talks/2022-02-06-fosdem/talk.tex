@@ -12,6 +12,17 @@
 
 \beamertemplatenavigationsymbolsempty
 
+\definecolor{TitleOrange}{RGB}{255,137,0}
+\setbeamercolor{title}{fg=TitleOrange}
+\setbeamercolor{frametitle}{fg=TitleOrange}
+
+\definecolor{ListOrange}{RGB}{255,145,5}
+\setbeamertemplate{itemize item}{\color{ListOrange}$\blacktriangleright$}
+
+\definecolor{verygrey}{RGB}{70,70,70}
+\setbeamercolor{normal text}{fg=verygrey}
+
+
 \usepackage{tabu}
 \usepackage{multicol}
 \usepackage{vwcol}
@@ -67,8 +78,9 @@
 	\vspace{1em}
 	\begin{itemize}
 		\item RAID
-		\item Redundant electricity + UPS
+		\item Redundant power grid + UPS
 		\item Redundant Internet connections
+		\item Low-latency links
 		\item ... 
 	\end{itemize}
 	\vspace{1em}
@@ -84,7 +96,7 @@
 		\begin{itemize}
 			\item \textcolor<2->{gray}{Commodity hardware (e.g. old desktop PCs)}
 				\vspace{.5em}
-			\item<4-> \textcolor<5->{gray}{Commodity Internet (e.g. FTTB, FTTH) and electricity}
+			\item<4-> \textcolor<5->{gray}{Commodity Internet (e.g. FTTB, FTTH) and power grid}
 				\vspace{.5em}
 			\item<5-> \textcolor<6->{gray}{\textbf{Geographical redundancy} (multi-site replication)}
 		\end{itemize}
@@ -200,6 +212,18 @@
 
 \begin{frame}
 	\frametitle{What makes Garage different?}
+	\textbf{Consistency model:}
+			\vspace{2em}
+	\begin{itemize}
+		\item Not ACID (not required by S3 spec) / not linearizable
+			\vspace{1em}
+		\item \textbf{Read-after-write consistency}\\
+			{\footnotesize (stronger than eventual consistency)}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What makes Garage different?}
 	\textbf{Location-aware:}
 	\vspace{2em}
 		\begin{center}
@@ -221,6 +245,20 @@
 		\begin{center}
 			\includegraphics[width=.7\linewidth]{assets/compatibility.png}
 		\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Get Garage now!}
+	\begin{center}
+			\includegraphics[width=.3\linewidth]{../../logo/garage_hires.png}\\
+			\vspace{-1em}
+		\url{https://garagehq.deuxfleurs.fr/}\\
+		Matrix channel: \texttt{\#garage:deuxfleurs.fr}
+
+		\vspace{2em}
+			\includegraphics[width=.09\linewidth]{assets/rust_logo.png}
+			\includegraphics[width=.2\linewidth]{assets/AGPLv3_Logo.png}
+	\end{center}
 \end{frame}
 
 \begin{frame}
