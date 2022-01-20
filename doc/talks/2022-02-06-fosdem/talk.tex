@@ -67,8 +67,8 @@
 	\vspace{1em}
 	\begin{itemize}
 		\item RAID
-		\item Redundant Internet connections
 		\item Redundant electricity + UPS
+		\item Redundant Internet connections
 		\item ... 
 	\end{itemize}
 	\vspace{1em}
@@ -78,7 +78,7 @@
 \begin{frame}
 	\frametitle{How to be resilient (the \underline{\textbf{cheap}} way)}
 
-	\only<1,4-5,7->{
+	\only<1,4-5>{
 		Instead, we use:
 		\vspace{1em}
 		\begin{itemize}
@@ -87,8 +87,6 @@
 			\item<4-> \textcolor<5->{gray}{Commodity Internet (e.g. FTTB, FTTH) and electricity}
 				\vspace{.5em}
 			\item<5-> \textcolor<6->{gray}{\textbf{Geographical redundancy} (multi-site replication)}
-				\vspace{.5em}
-			\item<7-> \textbf{Fault-tolerant distributed algorithms}
 		\end{itemize}
 	}
 	\only<2>{
@@ -143,7 +141,7 @@
 	\begin{itemize}
 		\item Put an object at a key
 			\vspace{1em}
-		\item Retrive an object from its key
+		\item Retrieve an object from its key
 	\end{itemize}
 	\vspace{1em}
 	{\footnotesize (and a few others)}
@@ -180,6 +178,53 @@
 
 \begin{frame}
 	\frametitle{What makes Garage different?}
+	\textbf{Coordination-free:}
+			\vspace{2em}
+	\begin{itemize}
+		\item No Raft or Paxos
+			\vspace{1em}
+		\item Internal data types are CRDTs
+			\vspace{1em}
+		\item All nodes are equivalent (no master/leader/index node)
+	\end{itemize}
+			\vspace{2em}
+	$\to$ less sensitive to higher latencies between nodes
+\end{frame}
+
+\begin{frame}
+	\frametitle{What makes Garage different?}
+		\begin{center}
+			\includegraphics[width=.9\linewidth]{assets/endpoint-latency-dc.png}
+		\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What makes Garage different?}
+	\textbf{Location-aware:}
+	\vspace{2em}
+		\begin{center}
+			\includegraphics[width=\linewidth]{assets/location-aware.png}
+		\end{center}
+	\vspace{2em}
+	Garage replicates data on different zones when possible
+\end{frame}
+
+\begin{frame}
+	\frametitle{What makes Garage different?}
+		\begin{center}
+			\includegraphics[width=.8\linewidth]{assets/map.png}
+		\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{An ever-increasing compatibility list}
+		\begin{center}
+			\includegraphics[width=.7\linewidth]{assets/compatibility.png}
+		\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Demo time!}
 \end{frame}
 
 \end{document}
