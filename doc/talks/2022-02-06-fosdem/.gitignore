@@ -9,3 +9,5 @@
 !*.tex
 !Makefile
 !.gitignore
+
+!talk.pdf
